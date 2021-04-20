@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "913835996764",
+    "project_id": "splitebill",
+    "storage_bucket": "splitebill.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:913835996764:android:bca40f6ba8e04e17a69899",
+        "android_client_info": {
+          "package_name": "com.example.splitebill"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "913835996764-tl2u6j3oijcj0t4c081bknrtkrki7llq.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAGCBEfYJfFKFsS0LJWqcTN768PdhNXbwI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "913835996764-tl2u6j3oijcj0t4c081bknrtkrki7llq.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
