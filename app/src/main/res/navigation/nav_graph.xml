@@ -9,7 +9,7 @@
         android:id="@+id/loginFragment"
         android:name="com.example.splitebill.loginFragment"
         android:label="fragment_login"
-        tools:layout="@layout/fragment_login" >
+        tools:layout="@layout/activity_login" >
         <action
             android:id="@+id/action_loginFragment_to_secondFragment"
             app:destination="@id/secondFragment" />

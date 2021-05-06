@@ -2,4 +2,6 @@
     <string name="app_name">SpliteBill</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="signUp">SignUp</string>
+    <string name="login">login</string>
 </resources>
