@@ -6,7 +6,7 @@ import android.app.Application
 class userId: Application() {
 
     companion object {
-        var userId:String = "";
+        var localUserId:String = "";
     }
 
 }
