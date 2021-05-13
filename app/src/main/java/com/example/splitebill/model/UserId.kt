@@ -1,4 +1,4 @@
-package com.example.splitebill
+package com.example.splitebill.model
 
 import android.app.Application
 

@@ -1,12 +1,12 @@
-package com.example.splitebill
+package com.example.splitebill.activity
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.TextUtils
 import android.widget.Toast
-import com.google.firebase.auth.AuthResult
-import com.example.splitebill.userId.Companion.localUserId
+import com.example.splitebill.R
+import com.example.splitebill.model.userId.Companion.localUserId
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.database.DatabaseReference

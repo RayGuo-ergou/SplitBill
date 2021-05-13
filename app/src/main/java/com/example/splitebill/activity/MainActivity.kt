@@ -1,9 +1,10 @@
-package com.example.splitebill
+package com.example.splitebill.activity
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import androidx.navigation.NavController
+import com.example.splitebill.R
 import com.example.splitebill.fragment.HomepageFragment
 import com.example.splitebill.fragment.ChatFragment
 import com.example.splitebill.fragment.SearchFragment
