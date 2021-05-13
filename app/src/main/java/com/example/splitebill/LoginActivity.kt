@@ -6,7 +6,7 @@ import android.os.Bundle
 import android.text.TextUtils
 import android.widget.Toast
 import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.auth.FirebaseUser
+import com.example.splitebill.userId.Companion.userId
 import kotlinx.android.synthetic.main.activity_register.*
 
 class LoginActivity : AppCompatActivity() {
@@ -54,10 +54,15 @@ class LoginActivity : AppCompatActivity() {
 
                                 ).show()
 
+                                userId = FirebaseAuth.getInstance().currentUser!!.uid
+
+
                                 val intent = Intent(this@LoginActivity, MainActivity::class.java)
-                                intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+                               /* intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
                                 intent.putExtra("user_id", FirebaseAuth.getInstance().currentUser!!.uid)
-                                intent.putExtra("email_id", email)
+                                intent.putExtra("email_id", email)*/
+
+
                                 startActivity(intent)
                                 finish()
                             }else{
