@@ -38,7 +38,7 @@ class ChatFragment : Fragment() {
         view.friendsRecyclerView.layoutManager = LinearLayoutManager(activity)
 
 
-        //userList.add(Friend("abc", "https://homepages.cae.wisc.edu/~ece533/images/cat.png"))
+        userList.add(Friend("abc", "https://homepages.cae.wisc.edu/~ece533/images/cat.png"))
 
         getUserList(view)
         return view
@@ -73,7 +73,7 @@ class ChatFragment : Fragment() {
                     }
                 }
 
-                view.friendsRecyclerView.adapter = FriendAdapter(userList)
+                view.friendsRecyclerView.adapter = FriendAdapter(activity, userList)
             }
 
             override fun onCancelled(error: DatabaseError) {

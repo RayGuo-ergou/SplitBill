@@ -43,7 +43,7 @@ class UserFragment : Fragment() {
                 if (user.userImage == ""){
                     view.userImage.setImageResource(R.drawable.profile)
                 }else{
-                    Glide.with(requireActivity()).load(user.userImage)
+                    Glide.with(activity!!).load(user.userImage)
                         .into(view.userImage)
                 }
             }

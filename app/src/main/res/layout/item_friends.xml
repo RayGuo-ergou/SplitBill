@@ -6,6 +6,7 @@
     android:layout_height="wrap_content"
     android:gravity="center"
     android:orientation="horizontal"
+    android:id="@+id/layoutUser"
     android:padding="10dp">
 
     <de.hdodenhof.circleimageview.CircleImageView
