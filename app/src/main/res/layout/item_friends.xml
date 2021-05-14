@@ -32,7 +32,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             tools:text="message"
-            android:text="12sp"
+            android:textSize="12sp"
             android:textColor="#a0a0a0"
             />
 
