@@ -22,10 +22,10 @@ class RegisterActivity : AppCompatActivity() {
 
         auth = FirebaseAuth.getInstance()
         setContentView(R.layout.activity_register)
-        signup_btn.setOnClickListener{
-            when{
+        signup_btn.setOnClickListener {
+            when {
                 //if user do not enter email
-                TextUtils.isEmpty(editTextTextEmailAddress.text.toString().trim{it <= ' '}) ->{
+                TextUtils.isEmpty(editTextTextEmailAddress.text.toString().trim { it <= ' ' }) -> {
                     Toast.makeText(
                         this@RegisterActivity,
                         "Please enter emails",
@@ -33,7 +33,7 @@ class RegisterActivity : AppCompatActivity() {
                     ).show()
                 }
                 //if user do not enter password
-                TextUtils.isEmpty(editTextTextPassword.text.toString().trim{it <= ' '}) ->{
+                TextUtils.isEmpty(editTextTextPassword.text.toString().trim { it <= ' ' }) -> {
                     Toast.makeText(
                         this@RegisterActivity,
                         "Please enter password",
@@ -42,7 +42,7 @@ class RegisterActivity : AppCompatActivity() {
 
                 }
                 //if user do not enter username
-                TextUtils.isEmpty(editTextTextUsername.text.toString().trim{it <= ' '}) ->{
+                TextUtils.isEmpty(editTextTextUsername.text.toString().trim { it <= ' ' }) -> {
                     Toast.makeText(
                         this@RegisterActivity,
                         "Please enter username",
@@ -50,7 +50,8 @@ class RegisterActivity : AppCompatActivity() {
                     ).show()
                 }
                 //if user do not enter password confirm
-                TextUtils.isEmpty(editTextTextPasswordConfirm.text.toString().trim{it <= ' '}) ->{
+                TextUtils.isEmpty(
+                    editTextTextPasswordConfirm.text.toString().trim { it <= ' ' }) -> {
                     Toast.makeText(
                         this@RegisterActivity,
                         "Please enter password confirm",
@@ -58,28 +59,28 @@ class RegisterActivity : AppCompatActivity() {
                     ).show()
 
                 }
-                else ->{
+                else -> {
 
 
+                    val email: String = editTextTextEmailAddress.text.toString().trim { it <= ' ' }
+                    val password: String = editTextTextPassword.text.toString().trim { it <= ' ' }
 
-                    val email: String = editTextTextEmailAddress.text.toString().trim{it<=' '}
-                    val password: String = editTextTextPassword.text.toString().trim {it<=' '}
+                    val username: String = editTextTextUsername.text.toString().trim { it <= ' ' }
+                    val passwordConfirm: String =
+                        editTextTextPasswordConfirm.text.toString().trim { it <= ' ' }
 
-                    val username: String = editTextTextUsername.text.toString().trim{it<=' '}
-                    val passwordConfirm: String = editTextTextPasswordConfirm.text.toString().trim {it<=' '}
-
-                    if (!password.equals(passwordConfirm)){
+                    if (!password.equals(passwordConfirm)) {
                         Toast.makeText(
                             this@RegisterActivity,
                             "password does not match",
                             Toast.LENGTH_SHORT
                         ).show()
 
-                    }else{
+                    } else {
                         //create an instance and create a register a user with email and password
-                        auth.createUserWithEmailAndPassword(email,password)
-                            .addOnCompleteListener(this){ task ->
-                                if (task.isSuccessful){
+                        auth.createUserWithEmailAndPassword(email, password)
+                            .addOnCompleteListener(this) { task ->
+                                if (task.isSuccessful) {
                                     //firebase registered user
                                     val firebaseUser: FirebaseUser = task.result!!.user!!
 
@@ -97,28 +98,35 @@ class RegisterActivity : AppCompatActivity() {
                                     localUserId = FirebaseAuth.getInstance().currentUser!!.uid
 
 
-                                    databaseReference = FirebaseDatabase.getInstance().getReference("Users").child(userId)
+                                    databaseReference =
+                                        FirebaseDatabase.getInstance().getReference("Users")
+                                            .child(userId)
 
-                                    val hashMap:HashMap<String,String> = HashMap()
+                                    val hashMap: HashMap<String, String> = HashMap()
                                     hashMap.put("userId", userId)
                                     hashMap.put("userName", username)
-                                    hashMap.put("profileImage","")
-                                    databaseReference.setValue(hashMap).addOnCompleteListener(this){
-                                        if(it.isSuccessful){
-                                            //open home
-                                            val intent = Intent(this@RegisterActivity, MainActivity::class.java)
-                                            intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
-                                            /*intent.putExtra("user_id", FirebaseAuth.getInstance().currentUser!!.uid)
-                                            intent.putExtra("email_id", email)*/
+                                    hashMap.put("profileImage", "")
+                                    databaseReference.setValue(hashMap)
+                                        .addOnCompleteListener(this) {
+                                            if (it.isSuccessful) {
+                                                //open home
+                                                val intent = Intent(
+                                                    this@RegisterActivity,
+                                                    MainActivity::class.java
+                                                )
+                                                intent.flags =
+                                                    Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+                                                /*intent.putExtra("user_id", FirebaseAuth.getInstance().currentUser!!.uid)
+                                                intent.putExtra("email_id", email)*/
 
 
-                                            startActivity(intent)
-                                            finish()
+                                                startActivity(intent)
+                                                finish()
+                                            }
                                         }
-                                    }
 
 
-                                }else{
+                                } else {
 
                                     Toast.makeText(
                                         this@RegisterActivity,
@@ -126,10 +134,9 @@ class RegisterActivity : AppCompatActivity() {
                                         Toast.LENGTH_SHORT
 
                                     ).show()
-                                }                        }
+                                }
+                            }
                     }
-
-
 
 
                 }
@@ -140,12 +147,11 @@ class RegisterActivity : AppCompatActivity() {
         }
 
 
-        login_btn.setOnClickListener{
+        login_btn.setOnClickListener {
             onBackPressed()
         }
 
     }
-
 
 
 }

@@ -19,22 +19,19 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
 
+        /*  val userId = intent.getStringExtra("user_id")
+          val emailId = intent.getStringExtra("email_id")
 
+          user_id.text = "User Id :: $userId"
+          email_id.text = "Email Id :: $emailId"
 
+          logout_btn.setOnClickListener{
+              //log out
+              FirebaseAuth.getInstance().signOut()
 
-      /*  val userId = intent.getStringExtra("user_id")
-        val emailId = intent.getStringExtra("email_id")
-
-        user_id.text = "User Id :: $userId"
-        email_id.text = "Email Id :: $emailId"
-
-        logout_btn.setOnClickListener{
-            //log out
-            FirebaseAuth.getInstance().signOut()
-
-            startActivity(Intent(this@MainActivity, LoginActivity::class.java))
-            finish()
-        }*/
+              startActivity(Intent(this@MainActivity, LoginActivity::class.java))
+              finish()
+          }*/
         val homeFragment = HomepageFragment()
         val searchFragment = SearchFragment()
         val chatFragment = ChatFragment()
@@ -43,7 +40,7 @@ class MainActivity : AppCompatActivity() {
         setCurrentFragment(homeFragment)
 
         bottomNavigationView.setOnNavigationItemSelectedListener {
-            when(it.itemId) {
+            when (it.itemId) {
                 R.id.miHome -> setCurrentFragment(homeFragment)
                 R.id.miMessage -> setCurrentFragment(chatFragment)
                 R.id.miProfile -> setCurrentFragment(userFragment)
@@ -64,7 +61,7 @@ class MainActivity : AppCompatActivity() {
 
     private fun setCurrentFragment(fragment: Fragment) =
         supportFragmentManager.beginTransaction().apply {
-            replace(R.id.flFragment,fragment)
+            replace(R.id.flFragment, fragment)
             commit()
         }
 }

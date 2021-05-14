@@ -23,9 +23,8 @@ class HomepageFragment : Fragment(R.layout.fragment_homepage) {
         // Inflate the layout for this fragment
         val view = inflater.inflate(R.layout.fragment_homepage, container, false)
 
-        return  view
+        return view
     }
-
 
 
 }

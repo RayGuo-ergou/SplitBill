@@ -2,11 +2,4 @@
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/nav_graph"
-    app:startDestination="@id/homepageFragment">
-    <fragment
-        android:id="@+id/homepageFragment"
-        android:name="com.example.splitebill.HomepageFragment"
-        android:label="fragment_homepage"
-        tools:layout="@layout/fragment_homepage" />
-</navigation>
+    android:id="@+id/nav_graph" />
