@@ -26,7 +26,7 @@ class FriendAdapter(private val context: Context, private val friendList: ArrayL
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val user = friendList[position]
         holder.textUserName.text = user.userName
-        Glide.with(context).load(user.userImage).into(holder.imgUser)
+        Glide.with(context).load(user.userImage).placeholder(R.drawable.profile).into(holder.imgUser)
     }
 
     override fun getItemCount(): Int {

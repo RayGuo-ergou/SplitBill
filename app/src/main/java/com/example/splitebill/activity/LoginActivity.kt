@@ -21,16 +21,16 @@ class LoginActivity : AppCompatActivity() {
 
         auth = FirebaseAuth.getInstance()
         firebaseUser = auth.currentUser!!
-        if (firebaseUser != null){
-            val intent = Intent(this@LoginActivity, MainActivity::class.java)
-            intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
-            /*intent.putExtra("user_id", FirebaseAuth.getInstance().currentUser!!.uid)
-            intent.putExtra("email_id", email)*/
-
-
-            startActivity(intent)
-            finish()
-        }
+//        if (firebaseUser != null){
+//            val intent = Intent(this@LoginActivity, MainActivity::class.java)
+//            intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+//            /*intent.putExtra("user_id", FirebaseAuth.getInstance().currentUser!!.uid)
+//            intent.putExtra("email_id", email)*/
+//
+//
+//            startActivity(intent)
+//            finish()
+//        }
 
         signup_btn.setOnClickListener{
             startActivity(Intent(this@LoginActivity, RegisterActivity::class.java))
