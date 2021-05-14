@@ -28,8 +28,7 @@ class SearchFragment : Fragment() {
         val view = inflater.inflate(R.layout.fragment_search, container, false)
 
         view.button.setOnClickListener(){
-            val intent = Intent(activity, MessageActivity::class.java)
-            startActivity(intent)
+
 
         }
         return view
