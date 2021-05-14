@@ -1,27 +1,42 @@
-package com.example.splitebill
+package com.example.splitebill.activity
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.TextUtils
 import android.widget.Toast
+import com.example.splitebill.R
 import com.google.firebase.auth.FirebaseAuth
-import com.example.splitebill.userId.Companion.userId
+import com.example.splitebill.model.userId.Companion.localUserId
+import com.google.firebase.auth.FirebaseUser
 import kotlinx.android.synthetic.main.activity_register.*
 
 class LoginActivity : AppCompatActivity() {
+
+    private lateinit var auth: FirebaseAuth
+    private lateinit var firebaseUser: FirebaseUser
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
 
-        signup_btn.setOnClickListener{
+        auth = FirebaseAuth.getInstance()
+        firebaseUser = auth.currentUser!!
+        if (firebaseUser != null) {
+            val intent = Intent(this@LoginActivity, MainActivity::class.java)
+            intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+
+            startActivity(intent)
+            finish()
+        }
+
+        signup_btn.setOnClickListener {
             startActivity(Intent(this@LoginActivity, RegisterActivity::class.java))
         }
 
-        login_btn.setOnClickListener{
-            when{
+        login_btn.setOnClickListener {
+            when {
                 //if user do not enter email
-                TextUtils.isEmpty(editTextTextEmailAddress.text.toString().trim{it <= ' '}) ->{
+                TextUtils.isEmpty(editTextTextEmailAddress.text.toString().trim { it <= ' ' }) -> {
                     Toast.makeText(
                         this@LoginActivity,
                         "Please enter emails",
@@ -29,22 +44,22 @@ class LoginActivity : AppCompatActivity() {
                     ).show()
                 }
                 //if user do not enter password
-                TextUtils.isEmpty(editTextTextPassword.text.toString().trim{it <= ' '}) ->{
+                TextUtils.isEmpty(editTextTextPassword.text.toString().trim { it <= ' ' }) -> {
                     Toast.makeText(
                         this@LoginActivity,
                         "Please enter password",
                         Toast.LENGTH_SHORT
                     ).show()
                 }
-                else ->{
+                else -> {
 
-                    val email: String = editTextTextEmailAddress.text.toString().trim{it<=' '}
-                    val password: String = editTextTextPassword.text.toString().trim {it<=' '}
+                    val email: String = editTextTextEmailAddress.text.toString().trim { it <= ' ' }
+                    val password: String = editTextTextPassword.text.toString().trim { it <= ' ' }
 
                     //login
-                    FirebaseAuth.getInstance().signInWithEmailAndPassword(email,password)
-                        .addOnCompleteListener(this){ task ->
-                            if (task.isSuccessful){
+                    FirebaseAuth.getInstance().signInWithEmailAndPassword(email, password)
+                        .addOnCompleteListener(this) { task ->
+                            if (task.isSuccessful) {
 
 
                                 Toast.makeText(
@@ -54,18 +69,19 @@ class LoginActivity : AppCompatActivity() {
 
                                 ).show()
 
-                                userId = FirebaseAuth.getInstance().currentUser!!.uid
+                                localUserId = FirebaseAuth.getInstance().currentUser!!.uid
 
 
                                 val intent = Intent(this@LoginActivity, MainActivity::class.java)
-                               /* intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
-                                intent.putExtra("user_id", FirebaseAuth.getInstance().currentUser!!.uid)
+                                intent.flags =
+                                    Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+                                /*intent.putExtra("user_id", FirebaseAuth.getInstance().currentUser!!.uid)
                                 intent.putExtra("email_id", email)*/
 
 
                                 startActivity(intent)
                                 finish()
-                            }else{
+                            } else {
 
                                 Toast.makeText(
                                     this@LoginActivity,

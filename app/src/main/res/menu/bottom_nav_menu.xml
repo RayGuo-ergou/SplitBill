@@ -16,6 +16,6 @@
     <item
         android:id="@+id/miProfile"
         android:title="Profile"
-        android:icon="@drawable/ic_user"/>
+        android:icon="@drawable/ic_send"/>
 
 </menu>

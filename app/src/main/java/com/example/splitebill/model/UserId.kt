@@ -1,4 +1,4 @@
-package com.example.splitebill
+package com.example.splitebill.model
 
 import android.app.Application
 
@@ -6,7 +6,7 @@ import android.app.Application
 class userId: Application() {
 
     companion object {
-        var userId:String = "";
+        var localUserId:String = "";
     }
 
 }
