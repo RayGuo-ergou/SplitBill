@@ -33,9 +33,11 @@ class AddEventActivity : AppCompatActivity() {
 
 
         getUserList()
+
+        insertIntoDatabase()
     }
 
-    fun getUserList() {
+    private fun getUserList() {
         val firebase: FirebaseUser = FirebaseAuth.getInstance().currentUser!!
         val databaseReference: DatabaseReference =
             FirebaseDatabase.getInstance().getReference("Users")
@@ -55,17 +57,9 @@ class AddEventActivity : AppCompatActivity() {
                 val checkboxAdapter = CheckboxAdapter(userList)
                 checkboxRecyclerView.adapter = checkboxAdapter
 
-                btnTest.setOnClickListener(){
+                selectedUserList = checkboxAdapter.listOfSelected()
 
-                    val intent = Intent(this@AddEventActivity, MainActivity::class.java)
-                    intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
 
-                    selectedUserList = checkboxAdapter.listOfSelected()
-
-                    Log.d("List", selectedUserList.toString())
-                    startActivity(intent)
-                    finish()
-                }
             }
 
             override fun onCancelled(error: DatabaseError) {
@@ -80,6 +74,20 @@ class AddEventActivity : AppCompatActivity() {
 
 
         })
+
+    }
+
+    private fun insertIntoDatabase(){
+
+        btnTest.setOnClickListener(){
+
+            val intent = Intent(this@AddEventActivity, MainActivity::class.java)
+            intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+
+            Log.d("List", selectedUserList.toString())
+            startActivity(intent)
+            finish()
+        }
 
     }
 }

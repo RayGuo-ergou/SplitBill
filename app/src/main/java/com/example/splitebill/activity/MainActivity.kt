@@ -1,12 +1,13 @@
 package com.example.splitebill.activity
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
+import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.navigation.NavController
 import com.example.splitebill.R
-import com.example.splitebill.fragment.HomepageFragment
 import com.example.splitebill.fragment.ChatFragment
+import com.example.splitebill.fragment.HomepageFragment
 import com.example.splitebill.fragment.SearchFragment
 import com.example.splitebill.fragment.UserFragment
 import kotlinx.android.synthetic.main.activity_main.*
@@ -17,6 +18,8 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
+
 
 
         /*  val userId = intent.getStringExtra("user_id")
@@ -48,10 +51,12 @@ class MainActivity : AppCompatActivity() {
             }
             true
         }
-        bottomNavigationView.getOrCreateBadge(R.id.miMessage).apply {
-            number = 10
-            isVisible = true
-        }
+//        bottomNavigationView.getOrCreateBadge(R.id.miMessage).apply {
+//            number = 10
+//            isVisible = true
+//        }
+
+
 
     }
 
