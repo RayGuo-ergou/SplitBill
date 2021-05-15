@@ -11,4 +11,8 @@
     <string name="username">Username</string>
     <string name="confirm_password">Confirm Password</string>
     <string name="send_message">Send message</string>
+    <string name="add_a_new_event">Add a new event</string>
+    <string name="event_name">Event Name: </string>
+    <string name="event_description">Event description</string>
+    <string name="total_amount">Total amount</string>
 </resources>
