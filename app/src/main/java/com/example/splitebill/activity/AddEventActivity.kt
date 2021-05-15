@@ -4,13 +4,10 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
-import android.view.View
 import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.splitebill.R
 import com.example.splitebill.adapter.CheckboxAdapter
-import com.example.splitebill.adapter.FriendAdapter
-import com.example.splitebill.model.Friend
 import com.example.splitebill.model.User
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
@@ -76,7 +73,7 @@ class AddEventActivity : AppCompatActivity() {
         })
 
     }
-
+    //TODO :Add data to database
     private fun insertIntoDatabase(){
 
         btnTest.setOnClickListener(){
