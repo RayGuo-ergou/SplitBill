@@ -30,7 +30,7 @@ class HomepageFragment : Fragment(R.layout.fragment_homepage) {
 
 
          view.fabAdd.setOnClickListener { view ->
-            Toast.makeText(activity, "add fab touched", Toast.LENGTH_SHORT).show()
+            //Toast.makeText(activity, "add fab touched", Toast.LENGTH_SHORT).show()
 
              val intent = Intent(activity, AddEventActivity::class.java)
 

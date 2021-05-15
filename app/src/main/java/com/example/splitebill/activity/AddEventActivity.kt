@@ -3,6 +3,7 @@ package com.example.splitebill.activity
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -21,6 +22,8 @@ import kotlinx.android.synthetic.main.fragment_chat.view.*
 class AddEventActivity : AppCompatActivity() {
 
     val userList = ArrayList<User>()
+    var selectedUserList = ArrayList<User>()
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_add_event)
@@ -28,14 +31,7 @@ class AddEventActivity : AppCompatActivity() {
         checkboxRecyclerView.layoutManager = LinearLayoutManager(this)
 
 
-        btnTest.setOnClickListener(){
 
-            val intent = Intent(this@AddEventActivity, MainActivity::class.java)
-            intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
-
-            startActivity(intent)
-            finish()
-        }
         getUserList()
     }
 
@@ -58,6 +54,18 @@ class AddEventActivity : AppCompatActivity() {
                 }
                 val checkboxAdapter = CheckboxAdapter(userList)
                 checkboxRecyclerView.adapter = checkboxAdapter
+
+                btnTest.setOnClickListener(){
+
+                    val intent = Intent(this@AddEventActivity, MainActivity::class.java)
+                    intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+
+                    selectedUserList = checkboxAdapter.listOfSelected()
+
+                    Log.d("List", selectedUserList.toString())
+                    startActivity(intent)
+                    finish()
+                }
             }
 
             override fun onCancelled(error: DatabaseError) {
