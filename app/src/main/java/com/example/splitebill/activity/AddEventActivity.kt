@@ -133,6 +133,7 @@ class AddEventActivity : AppCompatActivity() {
                     var hashMap: HashMap<String, String> = HashMap()
 
                     hashMap.put("EventNo", randomNumber.toString())
+                    hashMap.put("UserId",currentUid)
                     hashMap.put("EventName", nameEvent)
                     hashMap.put("EventDescription", descriptionEvent)
                     hashMap.put("TotalAmount",amountTotal)
@@ -144,6 +145,7 @@ class AddEventActivity : AppCompatActivity() {
                         hashMap.clear()
                         var friendUid = users.userId
                         hashMap.put("EventNo", randomNumber.toString())
+                        hashMap.put("UserId",friendUid)
                         hashMap.put("EventName", nameEvent)
                         hashMap.put("EventDescription", descriptionEvent)
                         hashMap.put("TotalAmount",amountTotal)
