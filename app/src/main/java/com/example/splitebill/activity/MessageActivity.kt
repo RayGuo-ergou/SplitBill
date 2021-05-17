@@ -99,6 +99,7 @@ class MessageActivity : AppCompatActivity() {
                     }
                     val chatAdapter = ChatAdapter(this@MessageActivity, chatList)
                     chatRecyclerView.adapter = chatAdapter
+                    chatRecyclerView.scrollToPosition(chatList.size -1)
                 }
             }
 
