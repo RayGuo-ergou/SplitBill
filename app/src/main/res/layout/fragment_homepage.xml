@@ -15,5 +15,12 @@
         android:contentDescription="@string/add_a_new_event"
         android:layout_margin="16dp" />
 
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/homepageRecyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        tools:listitem="@layout/item_event" />
+
 
 </FrameLayout>

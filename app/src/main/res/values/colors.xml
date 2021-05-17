@@ -9,4 +9,9 @@
     <color name="white">#FFFFFFFF</color>
     <color name="colorItemLeft">#E6E4E4</color>
     <color name="colorItemRight">#813fd7</color>
+    <color name="cyan">#BEE7E9</color>
+    <color name="lightGreen">#BEEDC7</color>
+    <color name="sakura">#feeeed</color>
+    <color name="ultramarine">#4e72b8</color>
+    <color name="SignOut">#f05b72</color>
 </resources>

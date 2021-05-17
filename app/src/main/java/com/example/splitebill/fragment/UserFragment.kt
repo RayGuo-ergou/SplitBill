@@ -1,5 +1,6 @@
 package com.example.splitebill.fragment
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -8,6 +9,8 @@ import android.view.ViewGroup
 import android.widget.Toast
 import com.bumptech.glide.Glide
 import com.example.splitebill.R
+import com.example.splitebill.activity.LoginActivity
+import com.example.splitebill.activity.MessageActivity
 import com.example.splitebill.model.Friend
 import com.example.splitebill.model.User
 import com.google.firebase.auth.FirebaseAuth
@@ -32,6 +35,18 @@ class UserFragment : Fragment() {
         // Inflate the layout for this fragment
         val view = inflater.inflate(R.layout.fragment_user, container, false)
 
+        view.signOutBtn.setOnClickListener {
+
+
+            //log out
+            FirebaseAuth.getInstance().signOut()
+
+            val intent = Intent(activity, LoginActivity::class.java)
+
+            activity?.startActivity(intent)
+            activity?.finish()
+        }
+
         firebaseUser = FirebaseAuth.getInstance().currentUser!!
         databaseReference =
             FirebaseDatabase.getInstance().getReference("Users").child(firebaseUser.uid)
@@ -40,9 +55,9 @@ class UserFragment : Fragment() {
             override fun onDataChange(snapshot: DataSnapshot) {
                 val user = snapshot.getValue(User::class.java)
                 view.userName.text = user!!.userName
-                if (user.userImage == ""){
+                if (user.userImage == "") {
                     view.userImage.setImageResource(R.drawable.profile)
-                }else{
+                } else {
                     Glide.with(activity!!).load(user.userImage)
                         .into(view.userImage)
                 }
