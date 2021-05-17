@@ -2,13 +2,10 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/layoutEventItems"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:background="@drawable/item_event_recycle_background"
-    android:layout_marginBottom="5dp"
+    android:layout_height="match_parent"
     android:orientation="vertical"
-    android:padding="10dp">
+    tools:context=".activity.EventPaymentActivity">
 
 
     <TextView
@@ -24,15 +21,14 @@
 
     <TextView
         android:id="@+id/nameEvent"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="6dp"
         android:background="@drawable/item_event_background"
         android:padding="5dp"
 
         android:textSize="12sp"
-        tools:text="name Event"
-        android:textColor="@color/white"/>
+        tools:text="name Event" />
 
     <TextView
 
@@ -47,15 +43,14 @@
 
     <TextView
         android:id="@+id/descriptionEvent"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
 
         android:layout_marginTop="6dp"
         android:background="@drawable/item_event_background"
         android:padding="5dp"
         android:textSize="12sp"
-        android:textColor="@color/white"
-        tools:text="name Event"/>
+        tools:text="name Evendfdfdfdfdfdfdfdfdtname Evendfdfdfdfdfdfdfdfdtname Evendfdfdfdfdfdfdfdfdtname Evendfdfdfdfdfdfdfdfdtname Evendfdfdfdfdfdfdfdfdt" />
 
 
     <TextView
@@ -71,12 +66,12 @@
 
     <TextView
         android:id="@+id/eventAmount"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="6dp"
         android:background="@drawable/item_event_background"
         android:padding="5dp"
-        android:textColor="@color/white"
+
         android:textSize="12sp"
         tools:text="name Event" />
 
@@ -93,21 +88,13 @@
 
     <TextView
         android:id="@+id/peopleNumber"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="6dp"
         android:background="@drawable/item_event_background"
         android:padding="5dp"
-        android:textColor="@color/white"
+
         android:textSize="12sp"
         tools:text="name Event" />
-
-    <Button
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/pay_this_event"
-        android:id="@+id/payBtn"
-        />
-
 
 </LinearLayout>

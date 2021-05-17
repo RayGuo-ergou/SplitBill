@@ -27,10 +27,7 @@ class SearchFragment : Fragment() {
         // Inflate the layout for this fragment
         val view = inflater.inflate(R.layout.fragment_search, container, false)
 
-        view.button.setOnClickListener(){
 
-
-        }
         return view
 
     }

@@ -1,22 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".fragment.SearchFragment"
     android:orientation="vertical">
 
-    <!-- TODO: Update blank fragment layout -->
-
-    <TextView
+    <com.mancj.materialsearchbar.MaterialSearchBar
+        style="@style/MaterialSearchBarDark"
+        app:mt_speechMode="true"
+        app:mt_hint="Search for new friends"
+        app:mt_maxSuggestionsCount="10"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="fragment search" />
 
-    <Button
-        android:id="@+id/button"
-        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Button" />
+        android:id="@+id/searchBar" />
+
 
 </LinearLayout>
