@@ -10,7 +10,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.SpliteBill">
-        <activity android:name=".activity.EventPaymentActivity"></activity>
+        <activity android:name=".activity.PaymentActivity"></activity>
+        <activity android:name=".activity.EventPaymentActivity" />
         <activity android:name=".activity.AddEventActivity" />
         <activity android:name=".activity.MessageActivity" />
         <activity android:name=".activity.RegisterActivity" />
