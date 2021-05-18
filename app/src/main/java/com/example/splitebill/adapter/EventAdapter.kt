@@ -14,6 +14,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.splitebill.R
 import com.example.splitebill.activity.MessageActivity
+import com.example.splitebill.activity.PaymentActivity
 import com.example.splitebill.model.Event
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
@@ -42,8 +43,16 @@ class EventAdapter(private val activity:
         holder.textDes.text = event.EventDescription
         holder.textPeople.text = event.People
 
-        holder.payBtn.setOnClickListener{
+        holder.cancelBtn.setOnClickListener{
             databaseReference.child(event.EventNo).removeValue()
+        }
+        holder.payBtn.setOnClickListener{
+            //databaseReference.child(event.EventNo).removeValue()
+            val intent = Intent(activity, PaymentActivity::class.java)
+            intent.putExtra("UserId",firebase.uid)
+            intent.putExtra("refNo",event.EventNo)
+
+            activity?.startActivity(intent)
         }
     }
 
@@ -58,6 +67,7 @@ class EventAdapter(private val activity:
         val textAmount: TextView = view.findViewById(R.id.eventAmount)
         val textPeople: TextView = view.findViewById(R.id.peopleNumber)
         val payBtn: Button = view.findViewById(R.id.payBtn)
+        val cancelBtn: Button = view.findViewById(R.id.cancelBtn)
 
     }
 

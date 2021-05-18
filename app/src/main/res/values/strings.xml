@@ -19,4 +19,5 @@
     <string name="number_of_people">Number of people:</string>
     <string name="pay_this_event">Pay this event</string>
     <string name="sign_out">Sign out</string>
+    <string name="pay_with_credit_card">Pay with credit card</string>
 </resources>

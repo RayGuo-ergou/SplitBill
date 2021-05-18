@@ -103,10 +103,16 @@
         tools:text="name Event" />
 
     <Button
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/pay_this_event"
         android:id="@+id/payBtn"
+        />
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Decline this event "
+        android:id="@+id/cancelBtn"
         />
 
 
