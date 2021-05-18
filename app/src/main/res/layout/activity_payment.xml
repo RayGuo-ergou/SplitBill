@@ -4,8 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".activity.PaymentActivity"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    tools:context=".activity.PaymentActivity">
 
     <com.zaferayan.creditcard.view.CreditCardView
         android:id="@+id/creditCardView"
@@ -14,12 +14,13 @@
         android:layout_marginTop="10dp">
 
     </com.zaferayan.creditcard.view.CreditCardView>
+
     <Button
         android:id="@+id/creditCardBtn"
-        android:layout_width="match_parent" android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:background="@color/colorPrimary"
-        android:textColor="@color/md_white_1000"
         android:text="@string/pay_with_credit_card"
-        />
+        android:textColor="@color/md_white_1000" />
 
 </LinearLayout>

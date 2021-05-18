@@ -52,12 +52,14 @@ class HomepageFragment : Fragment(R.layout.fragment_homepage) {
         return view
     }
 
+    //get all envent
     private fun getEventList(view: View) {
 
         val firebase: FirebaseUser = FirebaseAuth.getInstance().currentUser!!
         val databaseReference: DatabaseReference =
             FirebaseDatabase.getInstance().getReference("Events").child(firebase.uid)
 
+        //listen on firebase
         databaseReference.addValueEventListener(object : ValueEventListener {
             override fun onDataChange(snapshot: DataSnapshot) {
                 eventList.clear()

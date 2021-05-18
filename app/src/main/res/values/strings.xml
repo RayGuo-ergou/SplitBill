@@ -20,4 +20,5 @@
     <string name="pay_this_event">Pay this event</string>
     <string name="sign_out">Sign out</string>
     <string name="pay_with_credit_card">Pay with credit card</string>
+    <string name="decline_this_event">Decline this event</string>
 </resources>

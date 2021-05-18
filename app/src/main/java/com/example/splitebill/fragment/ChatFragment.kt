@@ -55,11 +55,13 @@ class ChatFragment : Fragment() {
         }
     }
 
+    //get users
     fun getUserList(view: View) {
         val firebase: FirebaseUser = FirebaseAuth.getInstance().currentUser!!
         val databaseReference: DatabaseReference =
             FirebaseDatabase.getInstance().getReference("Users")
 
+        //listen to database
         databaseReference.addValueEventListener(object : ValueEventListener {
             override fun onDataChange(snapshot: DataSnapshot) {
 
@@ -67,6 +69,7 @@ class ChatFragment : Fragment() {
                 for (dataSnapShot: DataSnapshot in snapshot.children) {
                     val friend = dataSnapShot.getValue(Friend::class.java)
 
+                    //find all users that not equal to the current user
                     if (!friend!!.userId.equals(firebase.uid)) {
 
                         userList.add(friend)

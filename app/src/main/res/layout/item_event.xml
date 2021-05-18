@@ -5,8 +5,8 @@
     android:id="@+id/layoutEventItems"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="@drawable/item_event_recycle_background"
     android:layout_marginBottom="5dp"
+    android:background="@drawable/item_event_recycle_background"
     android:orientation="vertical"
     android:padding="10dp">
 
@@ -15,10 +15,8 @@
 
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-
         android:layout_marginTop="12dp"
         android:padding="5dp"
-
         android:text="@string/event_name"
         android:textSize="12sp" />
 
@@ -29,19 +27,16 @@
         android:layout_marginTop="6dp"
         android:background="@drawable/item_event_background"
         android:padding="5dp"
-
+        android:textColor="@color/white"
         android:textSize="12sp"
-        tools:text="name Event"
-        android:textColor="@color/white"/>
+        tools:text="name Event" />
 
     <TextView
 
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-
         android:layout_marginTop="12dp"
         android:padding="5dp"
-
         android:text="@string/event_description"
         android:textSize="12sp" />
 
@@ -49,23 +44,20 @@
         android:id="@+id/descriptionEvent"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-
         android:layout_marginTop="6dp"
         android:background="@drawable/item_event_background"
         android:padding="5dp"
-        android:textSize="12sp"
         android:textColor="@color/white"
-        tools:text="name Event"/>
+        android:textSize="12sp"
+        tools:text="name Event" />
 
 
     <TextView
 
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-
         android:layout_marginTop="12dp"
         android:padding="5dp"
-
         android:text="@string/total_amount"
         android:textSize="12sp" />
 
@@ -84,10 +76,8 @@
 
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-
         android:layout_marginTop="12dp"
         android:padding="5dp"
-
         android:text="@string/number_of_people"
         android:textSize="12sp" />
 
@@ -103,17 +93,16 @@
         tools:text="name Event" />
 
     <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/pay_this_event"
         android:id="@+id/payBtn"
-        />
-    <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Decline this event "
+        android:text="@string/pay_this_event" />
+
+    <Button
         android:id="@+id/cancelBtn"
-        />
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/decline_this_event" />
 
 
 </LinearLayout>

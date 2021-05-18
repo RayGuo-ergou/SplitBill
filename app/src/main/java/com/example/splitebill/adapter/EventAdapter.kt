@@ -22,8 +22,10 @@ import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
 
 
-class EventAdapter(private val activity:
-                    FragmentActivity?, private val eventList: ArrayList<Event>) :
+class EventAdapter(
+    private val activity:
+    FragmentActivity?, private val eventList: ArrayList<Event>
+) :
     RecyclerView.Adapter<EventAdapter.ViewHolder>() {
 
 
@@ -42,15 +44,16 @@ class EventAdapter(private val activity:
         holder.textAmount.text = event.TotalAmount
         holder.textDes.text = event.EventDescription
         holder.textPeople.text = event.People
-
-        holder.cancelBtn.setOnClickListener{
+        //if user dot want this event just cancel
+        holder.cancelBtn.setOnClickListener {
             databaseReference.child(event.EventNo).removeValue()
         }
-        holder.payBtn.setOnClickListener{
+        //if user want to pay this event intent to the payment activity
+        holder.payBtn.setOnClickListener {
             //databaseReference.child(event.EventNo).removeValue()
             val intent = Intent(activity, PaymentActivity::class.java)
-            intent.putExtra("UserId",firebase.uid)
-            intent.putExtra("refNo",event.EventNo)
+            intent.putExtra("UserId", firebase.uid)
+            intent.putExtra("refNo", event.EventNo)
 
             activity?.startActivity(intent)
         }

@@ -36,10 +36,11 @@ class UserFragment : Fragment() {
         // Inflate the layout for this fragment
         val view = inflater.inflate(R.layout.fragment_user, container, false)
 
+        //create a dialog before log use out, to make sure user really want to logout
         val confirmDialog = AlertDialog.Builder(requireContext()).setTitle("Warning")
             .setIcon(R.drawable.ic_warn)
             .setMessage("Are you sure you want to sign out?")
-            .setPositiveButton("Yes") {dialogInterface, i ->
+            .setPositiveButton("Yes") { dialogInterface, i ->
                 FirebaseAuth.getInstance().signOut()
 
                 val intent = Intent(activity, LoginActivity::class.java)
@@ -47,27 +48,19 @@ class UserFragment : Fragment() {
                 activity?.startActivity(intent)
                 activity?.finish()
             }
-            .setNegativeButton("Cancel"){dialogInterface, i ->
+            .setNegativeButton("Cancel") { dialogInterface, i ->
                 dialogInterface.dismiss()
             }.create()
 
         view.signOutBtn.setOnClickListener {
             confirmDialog.show()
-//
-//
-//            //log out
-//            FirebaseAuth.getInstance().signOut()
-//
-//            val intent = Intent(activity, LoginActivity::class.java)
-//
-//            activity?.startActivity(intent)
-//            activity?.finish()
         }
 
         firebaseUser = FirebaseAuth.getInstance().currentUser!!
         databaseReference =
             FirebaseDatabase.getInstance().getReference("Users").child(firebaseUser.uid)
 
+        //get the current user information
         databaseReference.addValueEventListener(object : ValueEventListener {
             override fun onDataChange(snapshot: DataSnapshot) {
                 val user = snapshot.getValue(User::class.java)

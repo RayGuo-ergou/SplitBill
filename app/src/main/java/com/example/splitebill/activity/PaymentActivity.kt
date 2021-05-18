@@ -16,6 +16,7 @@ class PaymentActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_payment)
 
+        //get variable from intent
         val intent = intent
         val userId = intent.getStringExtra("UserId")
         val refNo = intent.getStringExtra("refNo")
@@ -23,29 +24,23 @@ class PaymentActivity : AppCompatActivity() {
         val databaseReference: DatabaseReference =
             FirebaseDatabase.getInstance().getReference("Events").child(userId!!)
 
-
-
+        //when the button clicked
         creditCardBtn.setOnClickListener {
+            //check if user full fill the card info
             var creditCard = creditCardView.creditCardInfo
-            Log.v("card",creditCard.cvv.toString())
-            if (creditCard.cvv == ""||creditCard.name == ""|| creditCard.number == ""||
-                    creditCard.expirationMonth == ""|| creditCard.expirationYear == ""){
+            Log.v("card", creditCard.cvv.toString())
+            if (creditCard.cvv == "" || creditCard.name == "" || creditCard.number == "" ||
+                creditCard.expirationMonth == "" || creditCard.expirationYear == ""
+            ) {
                 Toast.makeText(this, "Please enter the card information", Toast.LENGTH_SHORT).show()
-            }else{
+            } else {
+                //if user input a card, remove this event from firebase then intent to home page
                 databaseReference.child(refNo!!).removeValue()
                 val intent = Intent(this@PaymentActivity, MainActivity::class.java)
 
                 startActivity(intent)
                 finish()
             }
-
-//            databaseReference.child(refNo!!).removeValue()
-//            val intent = Intent(this@PaymentActivity, MainActivity::class.java)
-//
-//            startActivity(intent)
-//            finish()
-
-
         }
 
     }

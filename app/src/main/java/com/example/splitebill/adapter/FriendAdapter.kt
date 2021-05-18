@@ -16,8 +16,10 @@ import com.example.splitebill.activity.MessageActivity
 import com.example.splitebill.model.Friend
 import de.hdodenhof.circleimageview.CircleImageView
 
-class FriendAdapter(private val activity:
-                    FragmentActivity?, private val friendList: ArrayList<Friend>) :
+class FriendAdapter(
+    private val activity:
+    FragmentActivity?, private val friendList: ArrayList<Friend>
+) :
     RecyclerView.Adapter<FriendAdapter.ViewHolder>() {
 
 
@@ -30,11 +32,12 @@ class FriendAdapter(private val activity:
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val user = friendList[position]
         holder.textUserName.text = user.userName
-        Glide.with(activity!!).load(user.userImage).placeholder(R.drawable.profile).into(holder.imgUser)
+        Glide.with(activity!!).load(user.userImage).placeholder(R.drawable.profile)
+            .into(holder.imgUser)
         //holder.imgUser.setImageResource(R.drawable.profile)
-        holder.layoutUser.setOnClickListener(){
+        holder.layoutUser.setOnClickListener() {
             val intent = Intent(activity, MessageActivity::class.java)
-            intent.putExtra("UserId",user.userId)
+            intent.putExtra("UserId", user.userId)
             activity?.startActivity(intent)
         }
     }

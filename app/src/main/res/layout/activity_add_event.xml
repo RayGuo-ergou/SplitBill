@@ -10,12 +10,11 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/event_name"
         android:layout_marginLeft="4dp"
-        android:layout_marginRight="4dp"
         android:layout_marginTop="8dp"
-        android:textSize="12sp"
-        />
+        android:layout_marginRight="4dp"
+        android:text="@string/event_name"
+        android:textSize="12sp" />
 
     <EditText
         android:id="@+id/eventName"
@@ -25,18 +24,16 @@
         android:layout_marginRight="4dp"
         android:ems="10"
         android:inputType="text"
-        android:textSize="12sp"
-        />
+        android:textSize="12sp" />
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/event_description"
         android:layout_marginLeft="4dp"
-        android:layout_marginRight="4dp"
         android:layout_marginTop="8dp"
-        android:textSize="12sp"
-        />
+        android:layout_marginRight="4dp"
+        android:text="@string/event_description"
+        android:textSize="12sp" />
 
     <EditText
         android:id="@+id/eventDescription"
@@ -46,17 +43,16 @@
         android:layout_marginRight="4dp"
         android:ems="10"
         android:inputType="text"
-        android:textSize="12sp"
-        />
+        android:textSize="12sp" />
+
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/total_amount"
         android:layout_marginLeft="4dp"
-        android:layout_marginRight="4dp"
         android:layout_marginTop="8dp"
-        android:textSize="12sp"
-        />
+        android:layout_marginRight="4dp"
+        android:text="@string/total_amount"
+        android:textSize="12sp" />
 
     <EditText
         android:id="@+id/totalAmount"
@@ -71,27 +67,21 @@
         />
 
 
-
-
-
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/checkboxRecyclerView"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        tools:listitem="@layout/item_checkbox"
         android:layout_weight="1"
+        tools:listitem="@layout/item_checkbox"
 
-         />
-
-
+        />
 
 
     <Button
+        android:id="@+id/btnTest"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/submit"
-        android:id="@+id/btnTest"
-/>
+        android:text="@string/submit" />
 
 
 </LinearLayout>

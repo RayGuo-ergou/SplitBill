@@ -8,14 +8,11 @@
     tools:context=".fragment.ChatFragment">
 
 
-
-
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/chatRecyclerView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_above="@+id/inputRelativeLayout"
-
         tools:listitem="@layout/item_friends" />
 
 
@@ -29,30 +26,28 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal">
+
             <EditText
                 android:id="@+id/messageInput"
                 android:layout_width="0dp"
-                android:layout_weight="1"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="2dp"
+                android:layout_weight="1"
                 android:ems="10"
-                android:inputType="text"
                 android:hint="@string/send_message"
+                android:inputType="text"
 
                 />
 
             <ImageButton
                 android:id="@+id/sendMessageBtn"
                 android:layout_width="0dp"
-                android:layout_weight="0.15"
                 android:layout_height="match_parent"
-                android:src="@drawable/ic_send"
+                android:layout_weight="0.15"
                 android:background="@drawable/transition_background_drawable"
-                />
+                android:src="@drawable/ic_send" />
 
         </LinearLayout>
-
-
 
 
     </RelativeLayout>

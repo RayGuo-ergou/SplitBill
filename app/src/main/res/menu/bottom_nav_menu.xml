@@ -3,19 +3,19 @@
 
     <item
         android:id="@+id/miHome"
-        android:title="Home"
-        android:icon="@drawable/ic_home"/>
+        android:icon="@drawable/ic_home"
+        android:title="Home" />
     <item
         android:id="@+id/miMessage"
-        android:title="Chat"
-        android:icon="@drawable/ic_chat"/>
+        android:icon="@drawable/ic_chat"
+        android:title="Chat" />
     <item
         android:id="@+id/miSearch"
-        android:title="Search"
-        android:icon="@drawable/ic_search"/>
+        android:icon="@drawable/ic_search"
+        android:title="Search" />
     <item
         android:id="@+id/miProfile"
-        android:title="Profile"
-        android:icon="@drawable/ic_user"/>
+        android:icon="@drawable/ic_user"
+        android:title="Profile" />
 
 </menu>

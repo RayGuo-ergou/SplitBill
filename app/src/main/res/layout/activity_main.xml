@@ -7,7 +7,6 @@
     tools:context=".activity.MainActivity">
 
 
-
     <FrameLayout
         android:id="@+id/flFragment"
         android:layout_width="match_parent"

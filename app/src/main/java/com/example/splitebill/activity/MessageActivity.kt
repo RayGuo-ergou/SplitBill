@@ -29,15 +29,16 @@ class MessageActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_message)
-
+        //create the linear layout manager for the recycler view
         chatRecyclerView.layoutManager = LinearLayoutManager(this)
-
+        //get the variables from the last activity
         val intent = intent
         val userId = intent.getStringExtra("UserId")
 
         firebaseUser = FirebaseAuth.getInstance().currentUser
         reference = FirebaseDatabase.getInstance().getReference("Users").child(userId!!)
 
+        //get the user data so can display the user name in the chat window
         reference!!.addValueEventListener(object : ValueEventListener {
             override fun onDataChange(snapshot: DataSnapshot) {
 
@@ -52,25 +53,31 @@ class MessageActivity : AppCompatActivity() {
 
         })
 
+        //when user send a message
         sendMessageBtn.setOnClickListener {
             var message: String = messageInput.text.toString()
 
+            //to make sure user typed something
             if (message.isEmpty()) {
                 Toast.makeText(applicationContext, "message is empty", Toast.LENGTH_SHORT).show()
                 messageInput.setText("")
             } else {
+                //send message
                 sendMessage(firebaseUser!!.uid, userId, message)
                 messageInput.setText("")
             }
         }
 
+        //call read message method
         readMessage(firebaseUser!!.uid, userId)
 
     }
 
+    //function to send message
     private fun sendMessage(senderId: String, receiverId: String, message: String) {
         var reference: DatabaseReference? = FirebaseDatabase.getInstance().getReference()
 
+        //create a hashmap and then store that hashmap into database
         var hashMap: HashMap<String, String> = HashMap()
         hashMap.put("senderId", senderId)
         hashMap.put("receiverId", receiverId)
@@ -81,6 +88,7 @@ class MessageActivity : AppCompatActivity() {
             .setValue(hashMap)
     }
 
+    //read the message
     fun readMessage(senderId: String, receiverId: String) {
         val databaseReference: DatabaseReference =
             FirebaseDatabase.getInstance().getReference("Chat")
@@ -92,14 +100,17 @@ class MessageActivity : AppCompatActivity() {
                 for (dataSnapshot: DataSnapshot in snapshot.children) {
                     val chat = dataSnapshot.getValue(Chat::class.java)
 
+                    //get the message from the current user and the user is talking to
                     if ((chat!!.senderId.equals(senderId) && chat!!.receiverId.equals(receiverId)) ||
                         (chat!!.senderId.equals(receiverId) && chat!!.receiverId.equals(senderId))
                     ) {
+                        //add to the chat list
                         chatList.add(chat)
                     }
+                    //implement the message recycle view
                     val chatAdapter = ChatAdapter(this@MessageActivity, chatList)
                     chatRecyclerView.adapter = chatAdapter
-                    chatRecyclerView.scrollToPosition(chatList.size -1)
+                    chatRecyclerView.scrollToPosition(chatList.size - 1)
                 }
             }
 
