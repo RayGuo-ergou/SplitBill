@@ -19,9 +19,9 @@ class RegisterActivity : AppCompatActivity() {
     private lateinit var databaseReference: DatabaseReference
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
         auth = FirebaseAuth.getInstance()
         setContentView(R.layout.activity_register)
+
         signup_btn.setOnClickListener {
             when {
                 //if user do not enter email
@@ -60,8 +60,7 @@ class RegisterActivity : AppCompatActivity() {
 
                 }
                 else -> {
-
-
+                    //get all things that user input
                     val email: String = editTextTextEmailAddress.text.toString().trim { it <= ' ' }
                     val password: String = editTextTextPassword.text.toString().trim { it <= ' ' }
 
@@ -69,6 +68,7 @@ class RegisterActivity : AppCompatActivity() {
                     val passwordConfirm: String =
                         editTextTextPasswordConfirm.text.toString().trim { it <= ' ' }
 
+                    // if the password is not equal to the confirm password, let user check again
                     if (!password.equals(passwordConfirm)) {
                         Toast.makeText(
                             this@RegisterActivity,
@@ -80,14 +80,13 @@ class RegisterActivity : AppCompatActivity() {
                         //create an instance and create a register a user with email and password
                         auth.createUserWithEmailAndPassword(email, password)
                             .addOnCompleteListener(this) { task ->
+                                //if create new account success
                                 if (task.isSuccessful) {
                                     //firebase registered user
                                     val firebaseUser: FirebaseUser = task.result!!.user!!
 
                                     val user: FirebaseUser? = auth.currentUser
                                     val userId: String = user!!.uid
-
-
 
                                     Toast.makeText(
                                         this@RegisterActivity,
@@ -102,6 +101,7 @@ class RegisterActivity : AppCompatActivity() {
                                         FirebaseDatabase.getInstance().getReference("Users")
                                             .child(userId)
 
+                                    //store the user info into database
                                     val hashMap: HashMap<String, String> = HashMap()
                                     hashMap.put("userId", userId)
                                     hashMap.put("userName", username)
@@ -114,11 +114,9 @@ class RegisterActivity : AppCompatActivity() {
                                                     this@RegisterActivity,
                                                     MainActivity::class.java
                                                 )
+                                                //intent to the homepage
                                                 intent.flags =
                                                     Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
-                                                /*intent.putExtra("user_id", FirebaseAuth.getInstance().currentUser!!.uid)
-                                                intent.putExtra("email_id", email)*/
-
 
                                                 startActivity(intent)
                                                 finish()
@@ -146,7 +144,7 @@ class RegisterActivity : AppCompatActivity() {
 
         }
 
-
+        //if user already has account, go to login
         login_btn.setOnClickListener {
             onBackPressed()
         }

@@ -1,21 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".fragment.SearchFragment"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    tools:context=".fragment.SearchFragment">
 
     <com.mancj.materialsearchbar.MaterialSearchBar
+        android:id="@+id/searchBar"
         style="@style/MaterialSearchBarDark"
-        app:mt_speechMode="true"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         app:mt_hint="Search for new friends"
         app:mt_maxSuggestionsCount="10"
-        android:layout_width="match_parent"
-
-        android:layout_height="wrap_content"
-        android:id="@+id/searchBar" />
+        app:mt_speechMode="true" />
 
 
 </LinearLayout>

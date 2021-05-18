@@ -23,30 +23,15 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-
-
-
-
-        /*  val userId = intent.getStringExtra("user_id")
-          val emailId = intent.getStringExtra("email_id")
-
-          user_id.text = "User Id :: $userId"
-          email_id.text = "Email Id :: $emailId"
-
-          logout_btn.setOnClickListener{
-              //log out
-              FirebaseAuth.getInstance().signOut()
-
-              startActivity(Intent(this@MainActivity, LoginActivity::class.java))
-              finish()
-          }*/
+        // get all teh fragment for the for the app
         val homeFragment = HomepageFragment()
         val searchFragment = SearchFragment()
         val chatFragment = ChatFragment()
         val userFragment = UserFragment()
-
+        //set the homepage to home fragment
         setCurrentFragment(homeFragment)
 
+        //when click the bottom nav bar, change the fragment
         bottomNavigationView.setOnNavigationItemSelectedListener {
             when (it.itemId) {
                 R.id.miHome -> setCurrentFragment(homeFragment)
@@ -56,20 +41,14 @@ class MainActivity : AppCompatActivity() {
             }
             true
         }
-//        bottomNavigationView.getOrCreateBadge(R.id.miMessage).apply {
-//            number = 10
-//            isVisible = true
-//        }
-
-
-
-
     }
 
+    //init the navigate bar
     override fun onSupportNavigateUp(): Boolean {
         return super.onSupportNavigateUp() || super.onSupportNavigateUp()
     }
 
+    //method to get the current fragment
     private fun setCurrentFragment(fragment: Fragment) =
         supportFragmentManager.beginTransaction().apply {
             replace(R.id.flFragment, fragment)

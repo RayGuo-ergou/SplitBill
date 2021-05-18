@@ -19,7 +19,8 @@ class LoginActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
 
-        var firebaseUser: FirebaseUser?= null
+        //if the user logged in then just go to the home page
+        var firebaseUser: FirebaseUser? = null
         auth = FirebaseAuth.getInstance()
         firebaseUser = auth.currentUser
         if (firebaseUser != null) {
@@ -30,10 +31,12 @@ class LoginActivity : AppCompatActivity() {
             finish()
         }
 
+        //if user does not have account click here to sing up
         signup_btn.setOnClickListener {
             startActivity(Intent(this@LoginActivity, RegisterActivity::class.java))
         }
 
+        //login button to log the user in
         login_btn.setOnClickListener {
             when {
                 //if user do not enter email
@@ -54,6 +57,7 @@ class LoginActivity : AppCompatActivity() {
                 }
                 else -> {
 
+                    //get the user input information
                     val email: String = editTextTextEmailAddress.text.toString().trim { it <= ' ' }
                     val password: String = editTextTextPassword.text.toString().trim { it <= ' ' }
 
@@ -73,12 +77,10 @@ class LoginActivity : AppCompatActivity() {
                                 localUserId = FirebaseAuth.getInstance().currentUser!!.uid
 
 
+                                //after logged in go to homepage
                                 val intent = Intent(this@LoginActivity, MainActivity::class.java)
                                 intent.flags =
                                     Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
-                                /*intent.putExtra("user_id", FirebaseAuth.getInstance().currentUser!!.uid)
-                                intent.putExtra("email_id", email)*/
-
 
                                 startActivity(intent)
                                 finish()
